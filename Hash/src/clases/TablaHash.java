@@ -11,12 +11,14 @@ package clases;
  * @author migu_
  */
 public class TablaHash {
-    private Slot[] tabla;
-    int maximo = 0;
+    public Slot[] tabla;
+    public int maximo = 0;
     
     public TablaHash(int tope){
         maximo = tope;
         tabla = new Slot[maximo];
+        for (int i=0; i<maximo; i++)
+            tabla[i] = new Slot();
     }
     
     public int hash(int valor){
@@ -25,7 +27,6 @@ public class TablaHash {
     
     public void insertar(int valor){
         int llave = this.hash(valor);
-        tabla[llave] = new Slot();
         tabla[llave].llenar(valor);
     }
     
@@ -36,9 +37,7 @@ public class TablaHash {
         return llave;
     }
     
-    public void eliminar(int valor){
-        int llave = buscar(valor);
-        if (llave != -1)
-            tabla[llave].vaciar();
+    public void eliminar(int llave, int valor){
+        tabla[llave].vaciar();
     }
 }
