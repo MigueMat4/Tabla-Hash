@@ -11,4 +11,21 @@ package clases;
  */
 public class Slot {
     
+    public int valor = 0;
+    public boolean libre;
+    
+    public Slot(){
+        libre = true;
+    }
+    
+    public void llenar(int valorIngresado){
+        valor = valorIngresado;
+        libre = false;
+    }
+    
+    public void vaciar(){
+        valor = 0;
+        libre = true;
+    }
+    
 }
