@@ -8,7 +8,7 @@ package clases;
 
 /**
  *
- * @author migu_
+ * @author Miguel Matul <miguemat4@gmail.com>
  */
 public class TablaHash {
     public Slot[] tabla;
@@ -34,10 +34,20 @@ public class TablaHash {
         int llave = this.hash(valor);
         if (tabla[llave].libre)
             llave = -1;
+        else{
+            int contador = 0;
+            for (int i = 0; i < tabla[llave].valores.size(); i++) {
+                if (tabla[llave].valores.get(i) == valor)
+                    break;
+                contador++;
+            }
+            if (contador == tabla[llave].valores.size())
+                llave = -1;
+        }
         return llave;
     }
     
     public void eliminar(int llave, int valor){
-        tabla[llave].vaciar();
+        tabla[llave].vaciar(valor);
     }
 }
