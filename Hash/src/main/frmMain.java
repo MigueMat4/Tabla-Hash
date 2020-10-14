@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author migu_
+ * @author Miguel Matul <miguemat4@gmail.com>
  */
 public class frmMain extends javax.swing.JFrame {
     
@@ -218,8 +218,16 @@ public class frmMain extends javax.swing.JFrame {
 
     private void btnIterarTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIterarTablaActionPerformed
         System.out.println("\nTabla Hash:");
-        for (int i=0; i<miTabla.maximo; i++)
-            System.out.println("[" + i + ", " + miTabla.tabla[i].valor + "]");
+        for (int i=0; i<miTabla.maximo; i++){
+            String valores = "";
+            for (int j = 0; j < miTabla.tabla[i].valores.size(); j++) {
+                valores += String.valueOf(miTabla.tabla[i].valores.get(j));
+                if (j == miTabla.tabla[i].valores.size() - 1)
+                    break;
+                valores += " -> ";
+            }
+            System.out.println("[" + i + ", " + valores + "]");
+        }
     }//GEN-LAST:event_btnIterarTablaActionPerformed
 
     /**

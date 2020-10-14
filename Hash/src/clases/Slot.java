@@ -5,13 +5,15 @@
  */
 package clases;
 
+import java.util.ArrayList;
+
 /**
  *
- * @author migu_
+ * @author Miguel Matul <miguemat4@gmail.com>
  */
 public class Slot {
     
-    public int valor = 0;
+    public ArrayList<Integer> valores = new ArrayList<>();
     public boolean libre;
     
     public Slot(){
@@ -19,13 +21,19 @@ public class Slot {
     }
     
     public void llenar(int valorIngresado){
-        valor = valorIngresado;
+        valores.add(valorIngresado);
         libre = false;
     }
     
-    public void vaciar(){
-        valor = 0;
-        libre = true;
+    public void vaciar(int valorAEliminar){
+        for (int i = 0; i < valores.size(); i++) {
+            if (valores.get(i) == valorAEliminar){
+                valores.remove(i);
+                break;
+            }
+        }
+        if (valores.isEmpty())
+            libre = true;
     }
     
 }
