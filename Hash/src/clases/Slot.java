@@ -10,6 +10,7 @@ import java.util.ArrayList;
 /**
  *
  * @author Miguel Matul <miguemat4@gmail.com>
+ * Clase para el nodo de una tabla Hash
  */
 public class Slot {
     
